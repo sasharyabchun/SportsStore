@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SportsStore.Models;
 
@@ -12,9 +14,21 @@ namespace SportsStore
 {
     public class Startup
     {
+        public static IConfiguration Configuration { get; set; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json")
+                .Build();
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IProductRepository, FakeProductRepository>();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration["Data:SportsStoreProducts:ConnectionString"]));
+            services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddMvc();
         }
 
@@ -31,6 +45,7 @@ namespace SportsStore
                     template: "{controller=Product}/{action=List}/{id?}"
                     );
             });
+            //SeedData.EnsurePopulated(app);
         }
     }
 }

@@ -14,10 +14,12 @@ namespace SportsStore.Models
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().Property(product => product.Price)
-                .HasColumnType("decimal(5,2)")
+                .HasColumnType("numeric(18,2)")
                 .IsRequired(true);
         }
     }

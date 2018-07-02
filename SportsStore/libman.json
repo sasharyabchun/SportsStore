@@ -37,6 +37,17 @@
         "js/bootstrap.min.js",
         "js/npm.js"
       ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "fontawesome-iconpicker@3.0.0",
+      "destination": "wwwroot/lib/fontawesome",
+      "files": [
+        "css/fontawesome-iconpicker.css",
+        "css/fontawesome-iconpicker.min.css",
+        "js/fontawesome-iconpicker.js",
+        "js/fontawesome-iconpicker.min.js"
+      ]
     }
   ]
 }

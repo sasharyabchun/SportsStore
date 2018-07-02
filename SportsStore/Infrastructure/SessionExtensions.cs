@@ -14,9 +14,6 @@ namespace SportsStore.Infrastructure
         {
             string sessionData = JsonConvert.SerializeObject(value);
             session.SetString(key, sessionData);
-
-            sessionData = session.GetString(key);
-            var cart = JsonConvert.DeserializeObject<Cart>(sessionData);
         }
 
         public static T GetJson<T>(this ISession session, string key)

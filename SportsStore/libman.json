@@ -3,20 +3,6 @@
   "libraries": [
     {
       "provider": "cdnjs",
-      "library": "jquery@3.3.1",
-      "destination": "wwwroot/lib/jquery",
-      "files": [
-        "core.js",
-        "jquery.js",
-        "jquery.min.js",
-        "jquery.min.map",
-        "jquery.slim.js",
-        "jquery.slim.min.js",
-        "jquery.slim.min.map"
-      ]
-    },
-    {
-      "provider": "cdnjs",
       "library": "twitter-bootstrap@3.3.6",
       "destination": "wwwroot/lib/bootstrap",
       "files": [
@@ -40,13 +26,12 @@
     },
     {
       "provider": "cdnjs",
-      "library": "fontawesome-iconpicker@3.0.0",
-      "destination": "wwwroot/lib/fontawesome",
+      "library": "jquery@2.2.4",
+      "destination": "wwwroot/lib/jquery",
       "files": [
-        "css/fontawesome-iconpicker.css",
-        "css/fontawesome-iconpicker.min.css",
-        "js/fontawesome-iconpicker.js",
-        "js/fontawesome-iconpicker.min.js"
+        "jquery.js",
+        "jquery.min.js",
+        "jquery.min.map"
       ]
     }
   ]
